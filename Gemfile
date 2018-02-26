@@ -29,6 +29,8 @@ gem 'haml-rails'
 gem 'high_voltage'
 gem 'jquery-rails'
 gem 'pg', '~> 0.18'
+gem 'activeadmin'
+
 group :development do
   gem 'better_errors'
   gem 'html2haml'
