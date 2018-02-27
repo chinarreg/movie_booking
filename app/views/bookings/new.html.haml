@@ -1,0 +1,23 @@
+.card
+  .card-header
+    = @showing.film.name
+  .card-block{style: "padding: 20px;"}
+    %h4.card-title 
+      Cinema Hall:
+      = @showing.cinema_hall.name
+    %p.card-text 
+      Ticket Price:
+      = @showing.ticket_price
+    %p.card-text 
+      Timing:
+      = @showing.show_timing
+        
+    = form_for @booking do |f|
+      .form-group
+        = f.label "Select Date"
+        = f.select :booking_date, options_for_select((Date.today..Date.today+6).to_a), {}, {class: "form-control"}
+      .form-group
+        = f.label "Number of Tickets"
+        = f.number_field :no_of_tickets, {class: "form-control"}
+        = f.hidden_field :showing_id, value: params[:showing_id]
+      %button.btn.btn-primary{type: "submit"} Book

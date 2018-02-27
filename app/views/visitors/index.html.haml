@@ -1,4 +1,6 @@
-%h3 Welcome
-%p
-  - @showings.each do |showing|
-    = link_to showing.film, showing_path(showing.id)
+.panel.panel-default
+  .panel-heading Book Movie Tickets for:
+  .panel-body
+    .list-group
+      - @films.each do |film|
+        = link_to film.name, "/#{film.slug}", class: "list-group-item", style: "text-decoration: none;"

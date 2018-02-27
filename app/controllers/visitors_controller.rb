@@ -1,5 +1,5 @@
 class VisitorsController < ApplicationController
   def index
-    @showings = Showing.all
+    @films = Film.all
   end
 end

@@ -1,0 +1,19 @@
+%p
+  %h3
+    = @film.name
+  %p
+    - @film.showings.each do |showing|
+      .card{style: "padding: 20px;"}
+        .card-block
+          %h4.card-title 
+            Cinema Hall:
+            = showing.cinema_hall.name
+          %h6.card-subtitle.mb-2.text-muted 
+            Timing:
+            = showing.show_timing
+          %p.card-text 
+            Ticket Price: Rs.
+            = showing.ticket_price
+          = link_to "Check Availability", showing_path(showing.id), class: "btn btn-primary", style: "text-decoration: none;color:white;"
+          = link_to "Book Now", new_booking_path(showing_id: showing.id), class: "btn btn-success", style: "text-decoration: none;color:white;"
+      %br

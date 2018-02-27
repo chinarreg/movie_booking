@@ -1,0 +1,22 @@
+%p
+  %h3 Current Bookings
+  %p
+    - @bookings.each do |booking|
+      .card{style: "padding: 20px;"}
+        .card-block
+          %h4.card-title 
+            Movie:
+            = booking.showing.film.name
+            &nbsp;(at
+            = booking.showing.cinema_hall.name
+            )
+          %h6.card-subtitle.mb-2.text-muted 
+            Date:
+            = booking.booking_date
+            (
+            = booking.showing.show_timing
+            )
+          %p.card-text             
+            %b Seat Numbers:
+            = booking.seats.pluck(:seat_number).join(', ')
+      %br

@@ -4,5 +4,11 @@ Rails.application.routes.draw do
   root to: 'visitors#index'
   devise_for :users
   resources :users
-  resources :showings
+  resources :showings do 
+    collection do 
+      post :check_availability
+    end
+  end
+  resources :bookings
+  get '/:slug', to: "films#show"
 end

@@ -1,1 +1,25 @@
-= @showing.film
+.card
+  .card-header
+    = @showing.film.name
+  .card-block{style: "padding: 20px;"}
+    %h4.card-title 
+      Cinema Hall:
+      = @showing.cinema_hall.name
+    %p.card-text 
+      Ticket Price:
+      = @showing.ticket_price
+    %p.card-text 
+      Timing:
+      = @showing.show_timing
+        
+    = form_tag check_availability_showings_path, remote: true do
+      .form-group
+        = label_tag "Select Date"
+        = select_tag :movie_date, options_for_select((Date.today..Date.today+6).to_a), {class: "form-control"}
+        = hidden_field_tag :showing_id, @showing.id
+      %button.btn.btn-primary{type: "submit"} Check
+    %br
+    %p.card-text
+      %b#seats_available Seats Available:
+    
+

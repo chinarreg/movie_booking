@@ -1,0 +1,20 @@
+%p
+  %ul
+    - @showings.each do |showing|
+      %li
+        Film Name:
+        = showing.film.name
+        %br
+        Cinema Hall:
+        = showing.cinema_hall.name
+        %br
+        Timing:
+        = showing.show_timing
+        %br
+        Ticket Price: Rs.
+        = showing.ticket_price
+        %br
+        = link_to "Check Availability", showing_path(showing.id)
+        %br
+        %br
+        
