@@ -16,6 +16,9 @@
             (
             = booking.showing.show_timing
             )
+          %h6.card-subtitle.mb-2.text-muted 
+            Total Price: Rs.
+            = booking.total_price
           %p.card-text             
             %b Seat Numbers:
             = booking.seats.pluck(:seat_number).join(', ')
